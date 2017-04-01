@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-describe Money::Currency::Heuristics do
+describe MoneyHeuristics do
   describe "#analyze_string" do
     let(:it) { Money::Currency }
 
@@ -99,7 +99,7 @@ describe Money::Currency::Heuristics do
       expect(it.analyze("ש״ח")).not_to eq []
       expect(it.analyze("元")).not_to eq []
       expect(it.analyze("¢")).not_to eq []
-      expect(it.analyze("£")).not_to eq [] 
+      expect(it.analyze("£")).not_to eq []
       expect(it.analyze("€")).not_to eq []
       expect(it.analyze("¥")).not_to eq []
       expect(it.analyze("د.إ")).not_to eq []
