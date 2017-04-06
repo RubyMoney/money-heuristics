@@ -3,8 +3,8 @@ module MoneyHeuristics
     attr_reader :search_tree, :words
     attr_accessor :str, :currencies
 
-    def initialize str, search_tree
-      @str = (str||'').dup
+    def initialize(str, search_tree)
+      @str = (str || '').dup
       @search_tree = search_tree
       @currencies = []
     end
@@ -19,6 +19,8 @@ module MoneyHeuristics
 
       prepare_reply
     end
+
+    private
 
     def format
       str.gsub!(/[\r\n\t]/,'')
