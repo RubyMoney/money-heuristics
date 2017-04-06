@@ -5,7 +5,7 @@ This is a module for heuristic analysis of the string input for the
 
 [![Gem Version](https://badge.fury.io/rb/money-heuristics.svg)](https://rubygems.org/gems/money-heuristics)
 [![Build Status](https://travis-ci.org/RubyMoney/money-heuristics.svg?branch=master)](https://travis-ci.org/RubyMoney/money-heuristics)
-[![Coverage Status](https://coveralls.io/repos/RubyMoney/money-heuristics/badge.svg?branch=master)](https://coveralls.io/r/Rubymoney-heuristics/money-heuristics?branch=master)
+[![Coverage Status](https://coveralls.io/repos/RubyMoney/money-heuristics/badge.svg?branch=master)](https://coveralls.io/github/RubyMoney/money-heuristics?branch=master)
 [![License](https://img.shields.io/github/license/RubyMoney/money-heuristics.svg)](https://opensource.org/licenses/MIT)
 
 ## Contributing
