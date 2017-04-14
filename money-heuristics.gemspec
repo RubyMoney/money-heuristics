@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.name        = "money-heuristics"
   s.version     = MoneyHeuristics::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = ['Shane Emmons']
+  s.authors     = ['Shane Emmons', 'Anthony Dmitriyev']
   s.email       = ['shane@emmons.io']
   s.homepage    = 'https://rubymoney.github.io/money-heuristics'
   s.summary     = 'Heuristic module for for the money gem'
