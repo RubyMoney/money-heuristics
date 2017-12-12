@@ -1,4 +1,4 @@
-# encoding: utf-8
+require 'spec_helper'
 
 describe MoneyHeuristics do
   describe "#analyze_string" do
@@ -126,7 +126,7 @@ describe MoneyHeuristics do
       expect(it.analyze("៛")).not_to eq []
       expect(it.analyze("₩")).not_to eq []
       expect(it.analyze("د.ك")).not_to eq []
-      expect(it.analyze("〒")).not_to eq []
+      expect(it.analyze("₸")).not_to eq []
       expect(it.analyze("₭")).not_to eq []
       expect(it.analyze("ل.ل")).not_to eq []
       expect(it.analyze("₨")).not_to eq []
