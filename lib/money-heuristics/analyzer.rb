@@ -1,21 +1,26 @@
 module MoneyHeuristics
   class Analyzer
     attr_reader :search_tree, :words
-    attr_accessor :str, :currencies
+    attr_accessor :str, :currencies, :methods
 
     def initialize(str, search_tree)
       @str = (str || '').dup
       @search_tree = search_tree
       @currencies = []
+      @methods = { iso_code: "search_by_iso_code", 
+                   symbol: "search_by_symbol", 
+                   name: "search_by_name" }
     end
 
-    def process
+    def process(filters)
       format
       return [] if str.empty?
 
-      search_by_symbol
-      search_by_iso_code
-      search_by_name
+      if (methods.keys & filters).any?
+        filters.each{ |filter| send(methods[filter]) }
+      else
+        methods.values.each{|method| send(method)}
+      end
 
       prepare_reply
     end
