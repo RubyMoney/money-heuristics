@@ -10,7 +10,7 @@ module MoneyHeuristics
     # currency in an entire sentence
     #
     # Returns: Array (matched results)
-    def analyze(str, *filters)
+    def analyze(str, filters: [])
       @_heuristics_search_tree ||= MoneyHeuristics::SearchTree.new(table).build
 
       return MoneyHeuristics::Analyzer.new(str, @_heuristics_search_tree).process(filters)

@@ -7,20 +7,16 @@ module MoneyHeuristics
       @str = (str || '').dup
       @search_tree = search_tree
       @currencies = []
-      @methods = { iso_code: "search_by_iso_code", 
-                   symbol: "search_by_symbol", 
-                   name: "search_by_name" }
+      @methods = { iso_code: :search_by_iso_code, 
+                   symbol: :search_by_symbol, 
+                   name: :search_by_name }
     end
 
     def process(filters)
       format
       return [] if str.empty?
 
-      if (methods.keys & filters).any?
-        filters.each{ |filter| send(methods[filter]) }
-      else
-        methods.values.each{|method| send(method)}
-      end
+      filter_methods(filters).each { |method| send(method) }
 
       prepare_reply
     end
@@ -84,6 +80,14 @@ module MoneyHeuristics
       codes.uniq!
       codes.sort!
       codes
+    end
+
+    def filter_methods(filters)
+      filtered = methods.values_at(*filters).compact
+
+      return methods.values if filtered.empty?
+
+      filtered
     end
   end
 end

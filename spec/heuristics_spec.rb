@@ -161,12 +161,12 @@ describe MoneyHeuristics do
 
     context "with filters" do
         it "finds only by specified filters" do
-          expect(it.analyze("10 ₮ + 2USD", :iso_code)).to eq ["USD"]
-          expect(it.analyze("10 ₮ + 2USD", :iso_code, :symbol)).to eq ["MNT", "USD"]
+          expect(it.analyze("10 ₮ + 2USD", filters: [:iso_code])).to eq ["USD"]
+          expect(it.analyze("10 ₮ + 2USD", filters: [:iso_code, :symbol])).to eq ["MNT", "USD"]
         end
 
         it "ignores nonexistent filters" do
-          expect(it.analyze("10 ₮ + 2USD", :wrong_method)).to eq ["MNT", "USD"]
+          expect(it.analyze("10 ₮ + 2USD", filters: [:wrong_filter])).to eq ["MNT", "USD"]
         end
     end
   end
