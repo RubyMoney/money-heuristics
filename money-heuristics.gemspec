@@ -1,4 +1,6 @@
-lib = File.expand_path('../lib', __FILE__)
+# frozen_string_literal: true
+
+lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 require "money-heuristics/version"
@@ -8,22 +10,24 @@ Gem::Specification.new do |s|
   s.version     = MoneyHeuristics::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ['Shane Emmons', 'Anthony Dmitriyev']
-  s.email       = ['shane@emmons.io']
+  s.email       = ['shane@emmons.io', 'anthony.dmitriyev@gmail.com']
   s.homepage    = 'https://rubymoney.github.io/money-heuristics'
-  s.summary     = 'Heuristic module for for the money gem'
-  s.description = 'This is a module for heuristic analysis of the string input for the money gem. It was formerly part of the gem.'
+  s.summary     = 'Heuristic module for the money gem'
+  s.description = 'Heuristic module for analyzing currency information from strings for the money gem. It was formerly part of the money gem.'
   s.license     = 'MIT'
 
-  s.add_dependency 'money', '>= 6.9.0'
   s.add_dependency 'sixarm_ruby_unaccent', ['>= 1.1.1', '< 2']
+  s.add_dependency 'money', '~> 7.0'
 
-  s.add_development_dependency "bundler"
-  s.add_development_dependency "rake"
-  s.add_development_dependency "rspec", "~> 3.4.0"
-  s.add_development_dependency "yard", "~> 0.9.11"
+  s.required_ruby_version = ">= 3.1"
 
-  s.files         = `git ls-files`.split($/)
-  s.executables   = s.files.grep(%r{^bin/}) { |f| File.basename(f) }
-  s.test_files    = s.files.grep(%r{^(test|spec|features)/})
+  s.files         = `git ls-files -z -- lib/* CHANGELOG.md LICENSE money-heuristics.gemspec README.md`.split("\x0")
   s.require_paths = ["lib"]
+
+  if s.respond_to?(:metadata)
+    s.metadata["changelog_uri"] = "https://github.com/RubyMoney/money-heuristics/blob/main/CHANGELOG.md"
+    s.metadata["source_code_uri"] = "https://github.com/RubyMoney/money-heuristics/"
+    s.metadata["bug_tracker_uri"] = "https://github.com/RubyMoney/money-heuristics/issues"
+    s.metadata["rubygems_mfa_required"] = "true"
+  end
 end
