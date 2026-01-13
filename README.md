@@ -12,18 +12,18 @@ This is a module for heuristic analysis of the string input for the
 Include this line in your `Gemfile`:
 
 ```ruby
-gem 'money-heuristics'
+gem "money-heuristics"
 ```
 
 ## Usage
 
 ```ruby
->> Money::Currency.analyze 'USD 200'
+>> Money::Currency.analyze "USD 200"
 => ["USD"]
->> Money::Currency.analyze 'zł123,000.50'
+>> Money::Currency.analyze "zł123,000.50"
 => ["PLN"]
 ```
 
 ## Contributing
 
-See the [Contribution Guidelines](https://github.com/RubyMoney/money-heuristics/blob/master/CONTRIBUTING.md)
+See the [Contribution Guidelines](https://github.com/RubyMoney/money-heuristics/blob/main/CONTRIBUTING.md)
